@@ -1,4 +1,10 @@
 <script lang="ts">
+    import { page } from "$app/stores";
+    import { afterNavigate } from "$app/navigation";
+    let route = $page.url.pathname;
+    afterNavigate(() => {
+        route = $page.url.pathname;
+    });
 </script>
 
 <div id="header">
@@ -9,7 +15,7 @@
             </div>
 
             <div id="navbar-links">
-                <a href=".">Elérhetőségek</a>
+                <a href="/contacts">Elérhetőségek</a>
                 <a href=".">Munkatársaink</a>
                 <a href=".">Dokumentumok</a>
                 <a href=".">Gyermekvédelem</a>
@@ -25,27 +31,34 @@
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
             >
 
-            <div class="sliderm" id="main-slider">
-                <!-- <div class="sliderm__slider">
-                    <div class="sliderm__slides">
-                        <div class="sliderm__slide">
-                            <img src="https://szbi-pg.hu/images/Slider/KKF_NYNBANNER23-min.jpg" />
+            {#if route === "/"}
+                <div class="sliderm" id="main-slider">
+                    <h1>{route}</h1>
+                    <!-- <div class="sliderm__slider">
+                        <div class="sliderm__slides">
+                            <div class="sliderm__slide">
+                                <img src="https://szbi-pg.hu/images/Slider/KKF_NYNBANNER23-min.jpg" />
+                            </div>
+                            <div class="sliderm__slide">
+                                <img src="https://szbi-pg.hu/images/banners/diakolimpia2022.jpg" />
+                            </div>
+                            <div class="sliderm__slide">
+                                <img src="https://szbi-pg.hu/images/Slider/banner_Avat-min.jpg" />
+                            </div>
+                            <div class="sliderm__slide">
+                                <img src="https://szbi-pg.hu/images/IMG_0205.jpeg" />
+                            </div>
+                            <div class="sliderm__slide">
+                                <img src="https://szbi-pg.hu/images/banners/golyak2022.jpg" />
+                            </div>
                         </div>
-                        <div class="sliderm__slide">
-                            <img src="https://szbi-pg.hu/images/banners/diakolimpia2022.jpg" />
-                        </div>
-                        <div class="sliderm__slide">
-                            <img src="https://szbi-pg.hu/images/Slider/banner_Avat-min.jpg" />
-                        </div>
-                        <div class="sliderm__slide">
-                            <img src="https://szbi-pg.hu/images/IMG_0205.jpeg" />
-                        </div>
-                        <div class="sliderm__slide">
-                            <img src="https://szbi-pg.hu/images/banners/golyak2022.jpg" />
-                        </div>
-                    </div>
-                </div> -->
-            </div>
+                    </div> -->
+                </div>
+            {:else}
+                <div id="main-title">
+                    <h1>{document.title}</h1>
+                </div>
+            {/if}
 
             <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank"
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/kreta_logo.png" alt="Kreta logo" /></a
@@ -63,9 +76,9 @@
 </div>
 
 <style lang="scss">
+    @import "$lib/styles/variables.scss";
     #header {
         #above-arc {
-            height: 500px;
             background-color: white;
 
             #navbar {
@@ -122,13 +135,26 @@
                     height: 600px;
                 }
             }
+
+            #main-title {
+                margin-top: 30px;
+                width: 1400px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                h1 {
+                    font-size: 5rem;
+                    color: $main-blue;
+                }
+            }
         }
 
         #top-arc {
             position: relative;
             padding: 0;
             z-index: -1;
-            height: 450px;
+            height: 217px;
             // background-image: radial-gradient(ellipse at center, white 0%, white 70%, transparent calc(70% + 5px));
             background-position: bottom;
             // background-position-y: -350px;

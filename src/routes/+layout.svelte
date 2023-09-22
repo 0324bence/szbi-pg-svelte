@@ -5,6 +5,27 @@
     afterNavigate(() => {
         route = $page.url.pathname;
     });
+
+    import emblaCarouselSvelte from "embla-carousel-svelte";
+    import Autoplay from "embla-carousel-autoplay";
+
+    let options = {
+        loop: true
+    };
+    let plugins = [Autoplay()];
+
+    let emblaApi: any;
+    const onInit = (event: any) => {
+        emblaApi = event.detail;
+    };
+
+    function onCarouselPrevClick() {
+        emblaApi.scrollPrev(false);
+    }
+
+    function onCarouselNextClick() {
+        emblaApi.scrollNext(false);
+    }
 </script>
 
 <div id="header">
@@ -32,27 +53,43 @@
             >
 
             {#if route === "/"}
-                <div class="sliderm" id="main-slider">
-                    <h1>{route}</h1>
-                    <!-- <div class="sliderm__slider">
-                        <div class="sliderm__slides">
-                            <div class="sliderm__slide">
-                                <img src="https://szbi-pg.hu/images/Slider/KKF_NYNBANNER23-min.jpg" />
-                            </div>
-                            <div class="sliderm__slide">
-                                <img src="https://szbi-pg.hu/images/banners/diakolimpia2022.jpg" />
-                            </div>
-                            <div class="sliderm__slide">
-                                <img src="https://szbi-pg.hu/images/Slider/banner_Avat-min.jpg" />
-                            </div>
-                            <div class="sliderm__slide">
-                                <img src="https://szbi-pg.hu/images/IMG_0205.jpeg" />
-                            </div>
-                            <div class="sliderm__slide">
-                                <img src="https://szbi-pg.hu/images/banners/golyak2022.jpg" />
-                            </div>
+                <div
+                    class="embla"
+                    id="main-container"
+                    use:emblaCarouselSvelte={{ options, plugins }}
+                    on:emblaInit={onInit}
+                >
+                    <div class="embla__container">
+                        <div class="embla__slide">
+                            <img src="https://szbi-pg.hu/images/Slider/KKF_NYNBANNER23-min.jpg" alt="" />
                         </div>
-                    </div> -->
+                        <div class="embla__slide">
+                            <img src="https://szbi-pg.hu/images/banners/diakolimpia2022.jpg" alt="" />
+                        </div>
+                        <div class="embla__slide">
+                            <img src="https://szbi-pg.hu/images/Slider/banner_Avat-min.jpg" alt="" />
+                        </div>
+                        <div class="embla__slide">
+                            <img src="https://szbi-pg.hu/images/IMG_0205.jpeg" alt="" />
+                        </div>
+                        <div class="embla__slide">
+                            <img src="https://szbi-pg.hu/images/banners/golyak2022.jpg" alt="" />
+                        </div>
+                    </div>
+                    <button class="embla__prev carousel-button" on:click={onCarouselPrevClick}>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
+                            ><path
+                                d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z"
+                            /></svg
+                        >
+                    </button>
+                    <button class="embla__next carousel-button" on:click={onCarouselNextClick}
+                        ><svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"
+                            ><path
+                                d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+                            /></svg
+                        ></button
+                    >
                 </div>
             {:else}
                 <div id="main-title">
@@ -125,14 +162,52 @@
                 }
             }
 
-            #main-slider {
-                margin-top: 30px;
-                width: 1400px;
-                height: 600px;
-                background-color: black;
+            .embla {
+                overflow: hidden;
+                margin-left: 16rem;
+                margin-right: 16rem;
+                width: 100%;
+                aspect-ratio: 16 / 9;
+                position: relative;
 
-                .sliderm__slider {
-                    height: 600px;
+                .carousel-button {
+                    position: absolute;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    background-color: #333333cc;
+                    border-radius: 50%;
+                    border: none;
+                    padding: 15px;
+                    color: white;
+                    aspect-ratio: 1 / 1;
+                    cursor: pointer;
+
+                    svg {
+                        fill: white;
+                    }
+                }
+
+                .embla__prev {
+                    left: 0;
+                }
+
+                .embla__next {
+                    right: 0;
+                }
+
+                .embla__container {
+                    display: flex;
+                    aspect-ratio: 16 / 9;
+
+                    .embla__slide {
+                        flex: 0 0 100%;
+                        min-width: 0;
+
+                        img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
                 }
             }
 

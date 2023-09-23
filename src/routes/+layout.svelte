@@ -2,8 +2,10 @@
     import { page } from "$app/stores";
     import { afterNavigate } from "$app/navigation";
     let route = $page.url.pathname;
+    let title = document.title;
     afterNavigate(() => {
         route = $page.url.pathname;
+        title = document.title;
     });
 
     import emblaCarouselSvelte from "embla-carousel-svelte";
@@ -93,7 +95,7 @@
                 </div>
             {:else}
                 <div id="main-title">
-                    <h1>{document.title}</h1>
+                    <h1>{title}</h1>
                 </div>
             {/if}
 

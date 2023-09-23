@@ -32,5 +32,9 @@
         "tabWidth": 4,
         "trailingComma": "none"
     },
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "embla-carousel-autoplay": "^8.0.0-rc14",
+        "embla-carousel-svelte": "^8.0.0-rc14"
+    }
 }

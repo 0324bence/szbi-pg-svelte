@@ -12,3 +12,13 @@ body {
     color: white;
     font-family: "Open Sans", sans-serif;
 }
+
+a {
+    color: hsl(240, 100%, 80%);
+    &:visited {
+        color: hsl(240, 100%, 60%);
+    }
+    &:hover {
+        color: hsl(240, 100%, 70%);
+    }
+}

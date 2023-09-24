@@ -166,9 +166,7 @@
 
             .embla {
                 overflow: hidden;
-                margin-left: 16rem;
-                margin-right: 16rem;
-                width: 100%;
+                width: 1000px;
                 aspect-ratio: 16 / 9;
                 position: relative;
 
@@ -231,6 +229,7 @@
             position: relative;
             padding: 0;
             z-index: -1;
+            width: 100%;
             height: 217px;
             // background-image: radial-gradient(ellipse at center, white 0%, white 70%, transparent calc(70% + 5px));
             background-position: bottom;

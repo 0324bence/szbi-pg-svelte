@@ -1,7 +1,9 @@
 <script lang="ts">
     import { page } from "$app/stores";
+    import { base } from "$app/paths";
     import { afterNavigate } from "$app/navigation";
     let route = $page.url.pathname;
+    console.log(route);
     let title = document.title;
     afterNavigate(() => {
         route = $page.url.pathname;
@@ -34,19 +36,19 @@
     <div id="above-arc">
         <div id="navbar">
             <div>
-                <a href="/"><img id="main-logo" src="https://szbi-pg.hu/images/logo.png" alt="PG logo" /></a>
+                <a href="{base}/"><img id="main-logo" src="https://szbi-pg.hu/images/logo.png" alt="PG logo" /></a>
             </div>
 
             <div id="navbar-links">
-                <a href="/contacts">Elérhetőségek</a>
-                <a href=".">Munkatársaink</a>
-                <a href=".">Dokumentumok</a>
-                <a href=".">Gyermekvédelem</a>
-                <a href=".">Büszkeségeink</a>
-                <a href=".">Galéria</a>
-                <a href=".">Adatkezelési Tájékoztató</a>
-                <a href=".">Felnőttképzés</a>
-                <a href=".">Keresés</a>
+                <a href="{base}/contacts">Elérhetőségek</a>
+                <a href="{base}/">Munkatársaink</a>
+                <a href="{base}/">Dokumentumok</a>
+                <a href="{base}/">Gyermekvédelem</a>
+                <a href="{base}/">Büszkeségeink</a>
+                <a href="{base}/">Galéria</a>
+                <a href="{base}/">Adatkezelési Tájékoztató</a>
+                <a href="{base}/">Felnőttképzés</a>
+                <a href="{base}/">Keresés</a>
             </div>
         </div>
         <div id="pg150-kreta-container">
@@ -54,7 +56,7 @@
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
             >
 
-            {#if route === "/"}
+            {#if route === `${base}` || route === `${base}/`}
                 <div
                     class="embla"
                     id="main-container"

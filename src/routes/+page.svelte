@@ -1,15 +1,28 @@
+<script>
+    import ImageLink from "../components/ImageLink.svelte";
+</script>
+
 <!-- svelte-ignore a11y-missing-attribute -->
 <div id="content">
     <div class="content-col" id="left-side">
-        <a href="https://szbi-pg.hu/index.php/hu/iskolatortenet"
-            ><img src="https://szbi-pg.hu/images/panel/tortenet.jpg" /></a
-        >
-        <a href="https://szbi-pg.hu/index.php/hu/versenyeink"
-            ><img src="https://szbi-pg.hu/images/panel/verseny.jpg" /></a
-        >
-        <a href="https://szbi-pg.hu/index.php/hu/beiskolazas"
-            ><img src="https://szbi-pg.hu/images/panel/beiskolazas.jpg" /></a
-        >
+        <ImageLink
+            image="https://szbi-pg.hu/images/panel/tortenet.jpg"
+            title="Iskolatörténet"
+            subtitle="Kezdettől napjainkig"
+            link="https://szbi-pg.hu/index.php/hu/iskolatortenet"
+        />
+        <ImageLink
+            image="https://szbi-pg.hu/images/panel/verseny.jpg"
+            title="Versenyeink"
+            subtitle="Versenyeink személyes jelenlét mellett kerülnek megrendezésre!"
+            link="https://szbi-pg.hu/index.php/hu/versenyeink"
+        />
+        <ImageLink
+            image="https://szbi-pg.hu/images/panel/beiskolazas.jpg"
+            title="Beiskolázás"
+            subtitle="2023/24-es tanévre"
+            link="https://szbi-pg.hu/index.php/hu/beiskolazas"
+        />
     </div>
     <div class="content-col" id="center">
         <article>

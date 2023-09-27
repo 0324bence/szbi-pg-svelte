@@ -1,5 +1,5 @@
 import requests
-from bs4 import BeautifulSoup, PageElement
+from bs4 import BeautifulSoup
 import json
 
 url = "https://szbi-pg.hu/index.php/hu/munkatarsaink"
@@ -21,9 +21,9 @@ for section in sections:
     imgs = section.findAll("img")
     for person, image in zip(section.findAll("div", class_="profile"), imgs):
         personJson = {
-            "name": person.find("h1").text,
-            "contact": person.find("div", class_="contact").text,
-            "description": person.find("h2").text,
+            "name": person.find("h1").text.strip(),
+            "contact": person.find("div", class_="contact").text.strip(),
+            "description": person.find("h2").text.strip().replace("\r", "").split("\n"),
             "img": "https://szbi-pg.hu"+image["src"]
         }
 

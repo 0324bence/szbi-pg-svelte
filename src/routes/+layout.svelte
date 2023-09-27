@@ -115,6 +115,24 @@
 <div id="content">
     <slot />
 </div>
+<footer>
+    {#if route === `${base}` || route === `${base}/`}
+        <div id="footer-logos">
+            <a target="_blank" href="https://www.netacad.com/"
+                ><img src="https://szbi-pg.hu/images/2023/02/23/cisco.png" alt="cisco.png" /></a
+            >
+            <a href="https://www.cisco.com/c/hu_hu/index.html"
+                ><img src="https://szbi-pg.hu/images/2023/02/23/oracle.png" alt="oracle.png" /></a
+            >
+            <img src="https://szbi-pg.hu/images/2023/02/23/aws.png" alt="aws.png" />
+            <a href="https://bgazrt.hu/tamogatasok/hatartalanul/"
+                ><img src="https://szbi-pg.hu/images/partnerek/logo_hat.png" alt="logo_hat.png" /></a
+            >
+        </div>
+    {/if}
+    <p>&copy 2023 PG</p>
+    <p>Weboldal: &copy Deli Bence & Törteli Imre</p>
+</footer>
 
 <style lang="scss">
     @import "$lib/styles/variables.scss";
@@ -255,5 +273,27 @@
     }
     #content {
         width: 100%;
+    }
+
+    footer {
+        margin-top: 10rem;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #49547e;
+
+        #footer-logos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 3rem;
+
+            img {
+                width: 20rem;
+            }
+        }
     }
 </style>

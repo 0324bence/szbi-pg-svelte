@@ -41,7 +41,7 @@
 
             <div id="navbar-links">
                 <a href="{base}/contacts">Elérhetőségek</a>
-                <a href="{base}/">Munkatársaink</a>
+                <a href="{base}/munkatarsaink">Munkatársaink</a>
                 <a href="{base}/">Dokumentumok</a>
                 <a href="{base}/">Gyermekvédelem</a>
                 <a href="{base}/">Büszkeségeink</a>

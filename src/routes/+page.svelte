@@ -2,6 +2,10 @@
     import ImageLink from "../components/ImageLink.svelte";
 </script>
 
+<svelte:head>
+    <title>Szent Benedek PG Technikum</title>
+</svelte:head>
+
 <!-- svelte-ignore a11y-missing-attribute -->
 <div id="content">
     <div class="content-col" id="left-side">

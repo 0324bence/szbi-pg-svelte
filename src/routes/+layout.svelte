@@ -12,6 +12,7 @@
 
     import emblaCarouselSvelte from "embla-carousel-svelte";
     import Autoplay from "embla-carousel-autoplay";
+    import DropDownLink from "../components/DropDownLink.svelte";
 
     let options = {
         loop: true
@@ -42,7 +43,15 @@
             <div id="navbar-links">
                 <a href="{base}/contacts">Elérhetőségek</a>
                 <a href="{base}/munkatarsaink">Munkatársaink</a>
-                <a href="{base}/">Dokumentumok</a>
+                <DropDownLink
+                    href={[
+                        { href: `${base}`, name: "Közétételi lista" },
+                        { href: `${base}`, name: "Letölthető dokumentumok" },
+                        { href: `${base}`, name: "Közösségi szolgálat" },
+                        { href: `${base}`, name: "Érettségi" }
+                    ]}>Dokumentumok</DropDownLink
+                >
+                <!-- <a href="{base}/">Dokumentumok</a> -->
                 <a href="{base}/">Gyermekvédelem</a>
                 <a href="{base}/">Büszkeségeink</a>
                 <a href="{base}/">Galéria</a>
@@ -155,10 +164,12 @@
                     width: 45vw;
                     display: flex;
                     flex-wrap: wrap;
+                    align-items: center;
                     justify-content: center;
-                    gap: 0rem 2rem;
+                    gap: 0px 2rem;
 
                     a {
+                        display: block;
                         text-decoration: none;
                         color: black;
                         text-transform: uppercase;

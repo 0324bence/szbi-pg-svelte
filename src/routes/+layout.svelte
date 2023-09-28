@@ -155,10 +155,12 @@
                     width: 45vw;
                     display: flex;
                     flex-wrap: wrap;
+                    align-items: center;
                     justify-content: center;
-                    gap: 0rem 2rem;
+                    gap: 0px 2rem;
 
                     a {
+                        display: block;
                         text-decoration: none;
                         color: black;
                         text-transform: uppercase;

@@ -209,12 +209,13 @@
         margin: auto;
         padding-left: 2rem;
         padding-right: 2rem;
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr;
-        column-gap: 8rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8rem;
 
         .content-col {
+            flex: 3;
             * {
                 width: 100%;
             }
@@ -237,7 +238,8 @@
                     margin: auto;
                     margin-top: 2rem;
                     max-height: 600px;
-                    width: 850px;
+                    max-width: 850px;
+                    width: 100%;
                     overflow-y: auto;
                     display: flex;
                     flex-direction: row;
@@ -255,6 +257,7 @@
 
         #left-side,
         #right-side {
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 20px;

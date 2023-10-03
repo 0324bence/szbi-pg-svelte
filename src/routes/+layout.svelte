@@ -31,6 +31,8 @@
     function onCarouselNextClick() {
         emblaApi.scrollNext(false);
     }
+
+    let showMobileMenu = false;
 </script>
 
 <div id="header">
@@ -62,13 +64,13 @@
         </div>
         <div id="navbar" class="only-mobile">
             <a href="{base}/"><img id="main-logo" src="https://szbi-pg.hu/images/logo_mobil.png" alt="PG logo" /></a>
-            <div id="hamburger">
+            <button id="hamburger" on:click={() => (showMobileMenu = true)}>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
                     ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
                         d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
                     /></svg
                 >
-            </div>
+            </button>
         </div>
         <div id="pg150-kreta-container">
             <a href="http://pg150.hu/" target="_blank" class="no-mobile"
@@ -152,9 +154,88 @@
     <p>&copy 2023 PG</p>
     <p>Weboldal: &copy Deli Bence & Törteli Imre</p>
 </footer>
+<div id="mobile-menu-container" class={showMobileMenu ? "shown" : ""}>
+    <div id="mobile-menu" class={showMobileMenu ? "out" : ""}>
+        <a href="http://pg150.hu/" target="_blank" class="logo">
+            <img class="pg150-kreta-logo-mobile" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
+        >
+        <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank" class="logo">
+            <img class="pg150-kreta-logo-mobile" src="https://szbi-pg.hu/images/kreta_logo.png" alt="Kreta logo" /></a
+        >
+        <button
+            id="close-button"
+            on:click={() => {
+                showMobileMenu = false;
+            }}
+        >
+            <span>&times;</span>
+        </button>
+        <div id="mobile-menu-content">
+            <h1>asdd</h1>
+        </div>
+    </div>
+</div>
 
 <style lang="scss">
     @import "$lib/styles/variables.scss";
+
+    #mobile-menu-container {
+        transition: background-color 0.5s;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        &.shown {
+            pointer-events: all;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        #mobile-menu {
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(100%);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 65vw;
+            height: 100vh;
+            background-color: $side-blue;
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            grid-auto-rows: min-content auto;
+
+            &.out {
+                transform: translateX(0%);
+            }
+
+            .logo {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            #close-button {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                font-size: 3.5rem;
+                background: none;
+                border: none;
+                outline: none;
+                color: white;
+            }
+
+            #mobile-menu-content {
+                grid-column: span 3;
+            }
+        }
+    }
 
     #header {
         #above-arc {
@@ -181,6 +262,14 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    background: none;
+                    border: none;
+                    &:hover {
+                        cursor: pointer;
+                        svg {
+                            fill: lighten(black, 20);
+                        }
+                    }
                     svg {
                         aspect-ratio: 1 / 1;
                         height: 100%;

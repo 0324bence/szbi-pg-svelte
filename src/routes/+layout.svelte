@@ -35,7 +35,7 @@
 
 <div id="header">
     <div id="above-arc">
-        <div id="navbar">
+        <div id="navbar" class="no-mobile">
             <div>
                 <a href="{base}/"><img id="main-logo" src="https://szbi-pg.hu/images/logo.png" alt="PG logo" /></a>
             </div>
@@ -60,8 +60,18 @@
                 <a href="{base}/">Keresés</a>
             </div>
         </div>
+        <div id="navbar" class="only-mobile">
+            <a href="{base}/"><img id="main-logo" src="https://szbi-pg.hu/images/logo_mobil.png" alt="PG logo" /></a>
+            <div id="hamburger">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                    /></svg
+                >
+            </div>
+        </div>
         <div id="pg150-kreta-container">
-            <a href="http://pg150.hu/" target="_blank"
+            <a href="http://pg150.hu/" target="_blank" class="no-mobile"
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
             >
 
@@ -110,7 +120,7 @@
                 </div>
             {/if}
 
-            <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank"
+            <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank" class="no-mobile"
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/kreta_logo.png" alt="Kreta logo" /></a
             >
         </div>
@@ -145,19 +155,36 @@
 
 <style lang="scss">
     @import "$lib/styles/variables.scss";
+
     #header {
         #above-arc {
             background-color: white;
 
             #navbar {
-                padding: 2rem;
-                padding-bottom: 0px;
                 display: flex;
+                width: 100%;
+                height: auto;
+                padding: 2rem;
+                padding-bottom: 1rem;
+                align-items: center;
                 justify-content: space-between;
-                flex-wrap: wrap;
 
                 #main-logo {
+                    display: block;
+                    height: 100%;
                     width: 40vw;
+                }
+
+                #hamburger {
+                    height: 100%;
+                    width: 10vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    svg {
+                        aspect-ratio: 1 / 1;
+                        height: 100%;
+                    }
                 }
 
                 #navbar-links {
@@ -185,8 +212,8 @@
             #pg150-kreta-container {
                 display: flex;
                 justify-content: space-between;
-                margin-left: 40px;
-                margin-right: 40px;
+                margin-left: 2rem;
+                margin-right: 2rem;
                 align-items: flex-start;
 
                 .pg150-kreta-logo {
@@ -305,6 +332,29 @@
             img {
                 width: 20rem;
             }
+        }
+    }
+
+    //media query that activates when width is less than 1100px
+    @media screen and (max-width: 1100px) {
+        .no-mobile {
+            display: none !important;
+        }
+
+        #top-arc {
+            height: 100px !important;
+        }
+
+        #navbar {
+            #main-logo {
+                width: 60vw !important;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1100px) {
+        .only-mobile {
+            display: none !important;
         }
     }
 </style>

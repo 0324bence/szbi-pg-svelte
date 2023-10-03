@@ -222,7 +222,6 @@
 
             article {
                 line-height: 180%;
-                text-align: justify;
                 margin-bottom: 5rem;
 
                 h1 {
@@ -265,6 +264,19 @@
 
         #left-side img {
             border: 2px solid black;
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        #content {
+            flex-direction: column;
+            gap: 2rem;
+
+            .content-col {
+                * {
+                    width: auto;
+                }
+            }
         }
     }
 </style>

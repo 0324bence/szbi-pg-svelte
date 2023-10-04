@@ -30,6 +30,7 @@
     </div>
     <div class="content-col" id="center">
         <article>
+            <p class="article-date">2023. Szeptember 06.</p>
             <h1>Veni Sancte</h1>
             <p>
                 2023. szeptember 6-án Titusz atya a Szent István-templomban megnyitotta a 2023/2024-es tanévet. A Veni
@@ -110,6 +111,7 @@
             </div>
         </article>
         <article>
+            <p class="article-date">2023. Szeptember 05.</p>
             <h1>Kollégiumi csapatépítő program</h1>
             <p>
                 A 2023/2024-es tanévben is folytatódnak a 9. évfolyamos kollégistáinknak szervezett csapatépítő
@@ -142,6 +144,7 @@
             </div>
         </article>
         <article>
+            <p class="article-date">2023. Augusztus 28.</p>
             <h1>Tanévkezdési információk</h1>
             <p style="text-align: center">Kedves PG-s diákok, Tisztelt Szülők!</p>
             <p>Néhány fontos információ a tanév kezdésével kapcsolatosan:</p>
@@ -224,6 +227,11 @@
                 line-height: 180%;
                 text-align: justify;
                 margin-bottom: 5rem;
+
+                .article-date {
+                    color: rgba(255, 255, 255, 0.6);
+                    font-size: 0.9rem;
+                }
 
                 h1 {
                     margin-bottom: 1rem;

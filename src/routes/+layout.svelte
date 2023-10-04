@@ -154,7 +154,15 @@
     <p>&copy 2023 PG</p>
     <p>Weboldal: &copy Deli Bence & Törteli Imre</p>
 </footer>
-<div id="mobile-menu-container" class={showMobileMenu ? "shown" : ""}>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
+    id="mobile-menu-container"
+    class={showMobileMenu ? "shown" : ""}
+    on:click|self={() => {
+        showMobileMenu = false;
+    }}
+>
     <div id="mobile-menu" class={showMobileMenu ? "out" : ""}>
         <a href="http://pg150.hu/" target="_blank" class="logo">
             <img class="pg150-kreta-logo-mobile" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
@@ -171,7 +179,69 @@
             <span>&times;</span>
         </button>
         <div id="mobile-menu-content">
-            <h1>asdd</h1>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/contacts">Elérhetőségek</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/munkatarsaink">Munkatársaink</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Dokumentumok</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Gyermekvédelem</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Büszkeségeink</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Galéria</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Adatkezelési Tájékoztató</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Felnőttképzés</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Keresés</a>
+            </div>
         </div>
     </div>
 </div>
@@ -233,6 +303,29 @@
 
             #mobile-menu-content {
                 grid-column: span 3;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0.5rem;
+                gap: 0.5rem;
+
+                .item {
+                    padding: 0.5rem;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    a {
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                    svg {
+                        height: 1rem;
+                        fill: white;
+                    }
+                }
             }
         }
     }
@@ -437,6 +530,12 @@
         #navbar {
             #main-logo {
                 width: 60vw !important;
+            }
+        }
+
+        #main-title {
+            h1 {
+                font-size: 3rem !important;
             }
         }
     }

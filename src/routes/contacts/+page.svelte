@@ -79,4 +79,11 @@
         width: 350px;
         height: 400px;
     }
+
+    @media screen and (max-width: 1100px) {
+        #content {
+            flex-direction: column;
+            gap: 2rem;
+        }
+    }
 </style>

@@ -31,11 +31,13 @@
     function onCarouselNextClick() {
         emblaApi.scrollNext(false);
     }
+
+    let showMobileMenu = false;
 </script>
 
 <div id="header">
     <div id="above-arc">
-        <div id="navbar">
+        <div id="navbar" class="no-mobile">
             <div>
                 <a href="{base}/"><img id="main-logo" src="https://szbi-pg.hu/images/logo.png" alt="PG logo" /></a>
             </div>
@@ -60,8 +62,18 @@
                 <a href="{base}/">Keresés</a>
             </div>
         </div>
+        <div id="navbar" class="only-mobile">
+            <a href="{base}/"><img id="main-logo" src="https://szbi-pg.hu/images/logo_mobil.png" alt="PG logo" /></a>
+            <button id="hamburger" on:click={() => (showMobileMenu = true)}>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"
+                    /></svg
+                >
+            </button>
+        </div>
         <div id="pg150-kreta-container">
-            <a href="http://pg150.hu/" target="_blank"
+            <a href="http://pg150.hu/" target="_blank" class="no-mobile"
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
             >
 
@@ -114,7 +126,7 @@
                 </div>
             {/if}
 
-            <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank"
+            <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank" class="no-mobile"
                 ><img class="pg150-kreta-logo" src="https://szbi-pg.hu/images/kreta_logo.png" alt="Kreta logo" /></a
             >
         </div>
@@ -146,22 +158,219 @@
     <p>&copy 2023 PG</p>
     <p>Weboldal: &copy Deli Bence & Törteli Imre</p>
 </footer>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
+    id="mobile-menu-container"
+    class={showMobileMenu ? "shown" : ""}
+    on:click|self={() => {
+        showMobileMenu = false;
+    }}
+>
+    <div id="mobile-menu" class={showMobileMenu ? "out" : ""}>
+        <a href="http://pg150.hu/" target="_blank" class="logo">
+            <img class="pg150-kreta-logo-mobile" src="https://szbi-pg.hu/images/logo150.png" alt="PG150 logo" /></a
+        >
+        <a href="https://szbi-kiskunfelegyhaza.e-kreta.hu/" target="_blank" class="logo">
+            <img class="pg150-kreta-logo-mobile" src="https://szbi-pg.hu/images/kreta_logo.png" alt="Kreta logo" /></a
+        >
+        <button
+            id="close-button"
+            on:click={() => {
+                showMobileMenu = false;
+            }}
+        >
+            <span>&times;</span>
+        </button>
+        <div id="mobile-menu-content">
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/contacts">Elérhetőségek</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/munkatarsaink">Munkatársaink</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Dokumentumok</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Gyermekvédelem</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Büszkeségeink</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Galéria</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Adatkezelési Tájékoztató</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Felnőttképzés</a>
+            </div>
+            <div class="item">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"
+                    ><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path
+                        d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"
+                    /></svg
+                ><a href="{base}/">Keresés</a>
+            </div>
+        </div>
+    </div>
+</div>
 
 <style lang="scss">
     @import "$lib/styles/variables.scss";
+
+    #mobile-menu-container {
+        transition: background-color 0.5s;
+        position: absolute;
+        overflow: hidden;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        pointer-events: none;
+        &.shown {
+            pointer-events: all;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        #mobile-menu {
+            transition: transform 0.5s ease-in-out;
+            transform: translateX(100%);
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 65vw;
+            height: 100vh;
+            background-color: $side-blue;
+            display: grid;
+            grid-template-columns: 2fr 2fr 1fr;
+            grid-auto-rows: min-content auto;
+
+            &.out {
+                transform: translateX(0%);
+            }
+
+            .logo {
+                display: block;
+                width: 100%;
+                padding: 1rem;
+
+                img {
+                    width: 100%;
+                }
+            }
+
+            #close-button {
+                width: 100%;
+                height: 100%;
+                display: grid;
+                place-items: center;
+                font-size: 3.5rem;
+                background: none;
+                border: none;
+                outline: none;
+                color: white;
+            }
+
+            #mobile-menu-content {
+                grid-column: span 3;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                padding: 0.5rem;
+                gap: 0.5rem;
+
+                .item {
+                    padding: 0.5rem;
+                    text-transform: uppercase;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+
+                    a {
+                        color: white;
+                        text-decoration: none;
+                    }
+
+                    svg {
+                        height: 1rem;
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+
     #header {
         #above-arc {
             background-color: white;
 
             #navbar {
-                padding: 2rem;
-                padding-bottom: 0px;
                 display: flex;
+                width: 100%;
+                height: auto;
+                padding: 2rem;
+                padding-bottom: 1rem;
+                align-items: center;
                 justify-content: space-between;
-                flex-wrap: wrap;
 
                 #main-logo {
+                    display: block;
+                    height: 100%;
                     width: 40vw;
+                }
+
+                #hamburger {
+                    height: 100%;
+                    width: 10vw;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: none;
+                    border: none;
+                    &:hover {
+                        cursor: pointer;
+                        svg {
+                            fill: lighten(black, 20);
+                        }
+                    }
+                    svg {
+                        aspect-ratio: 1 / 1;
+                        height: 100%;
+                    }
                 }
 
                 #navbar-links {
@@ -189,8 +398,8 @@
             #pg150-kreta-container {
                 display: flex;
                 justify-content: space-between;
-                margin-left: 40px;
-                margin-right: 40px;
+                margin-left: 2rem;
+                margin-right: 2rem;
                 align-items: flex-start;
 
                 .pg150-kreta-logo {
@@ -320,6 +529,35 @@
             img {
                 width: 20rem;
             }
+        }
+    }
+
+    //media query that activates when width is less than 1100px
+    @media screen and (max-width: 1100px) {
+        .no-mobile {
+            display: none !important;
+        }
+
+        #top-arc {
+            height: 100px !important;
+        }
+
+        #navbar {
+            #main-logo {
+                width: 60vw !important;
+            }
+        }
+
+        #main-title {
+            h1 {
+                font-size: 3rem !important;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1100px) {
+        .only-mobile {
+            display: none !important;
         }
     }
 </style>

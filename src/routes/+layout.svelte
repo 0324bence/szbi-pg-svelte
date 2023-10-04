@@ -78,15 +78,19 @@
                         </div>
                         <div class="embla__slide">
                             <img src="https://szbi-pg.hu/images/banners/diakolimpia2022.jpg" alt="" />
+                            <p>Diákolimpia: Országos bajnok távolugró csapat</p>
                         </div>
                         <div class="embla__slide">
                             <img src="https://szbi-pg.hu/images/Slider/banner_Avat-min.jpg" alt="" />
+                            <p>Vegyesforgácsoló csarnok átadása</p>
                         </div>
                         <div class="embla__slide">
                             <img src="https://szbi-pg.hu/images/IMG_0205.jpeg" alt="" />
+                            <p>Gépész napok</p>
                         </div>
                         <div class="embla__slide">
                             <img src="https://szbi-pg.hu/images/banners/golyak2022.jpg" alt="" />
+                            <p>Gólyaavató 2022</p>
                         </div>
                     </div>
                     <button class="embla__prev carousel-button" on:click={onCarouselPrevClick}>
@@ -233,10 +237,21 @@
                     .embla__slide {
                         flex: 0 0 100%;
                         min-width: 0;
+                        display: flex;
+                        flex-direction: column;
 
                         img {
                             width: 100%;
                             height: 100%;
+                        }
+
+                        p {
+                            position: fixed;
+                            z-index: 1000;
+                            bottom: 0;
+                            width: 100%;
+                            background-color: #222a;
+                            padding: 0.5rem;
                         }
                     }
                 }

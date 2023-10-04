@@ -559,4 +559,14 @@
             }
         }
     }
+
+    @media screen and (max-width: 1100px) {
+        .section-title {
+            text-align: center;
+        }
+        .section-content {
+            flex-direction: column !important;
+            align-items: center;
+        }
+    }
 </style>

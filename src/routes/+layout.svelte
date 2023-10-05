@@ -523,6 +523,7 @@
             display: flex;
             flex-wrap: wrap;
             align-items: center;
+            justify-content: center;
             gap: 3rem;
             margin-bottom: 3rem;
 

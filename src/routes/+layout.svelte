@@ -267,8 +267,8 @@
             background-color: rgba(0, 0, 0, 0.6);
         }
         #mobile-menu {
-            transition: transform 0.5s ease-in-out;
             transform: translateX(100%);
+            transition: transform 0.5s ease-in-out;
             position: absolute;
             right: 0;
             top: 0;

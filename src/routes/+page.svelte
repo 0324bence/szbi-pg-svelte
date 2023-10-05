@@ -1,18 +1,36 @@
+<script>
+    import ImageLink from "../components/ImageLink.svelte";
+</script>
+
+<svelte:head>
+    <title>Szent Benedek PG Technikum</title>
+</svelte:head>
+
 <!-- svelte-ignore a11y-missing-attribute -->
 <div id="content">
     <div class="content-col" id="left-side">
-        <a href="https://szbi-pg.hu/index.php/hu/iskolatortenet"
-            ><img src="https://szbi-pg.hu/images/panel/tortenet.jpg" /></a
-        >
-        <a href="https://szbi-pg.hu/index.php/hu/versenyeink"
-            ><img src="https://szbi-pg.hu/images/panel/verseny.jpg" /></a
-        >
-        <a href="https://szbi-pg.hu/index.php/hu/beiskolazas"
-            ><img src="https://szbi-pg.hu/images/panel/beiskolazas.jpg" /></a
-        >
+        <ImageLink
+            image="https://szbi-pg.hu/images/panel/tortenet.jpg"
+            title="Iskolatörténet"
+            subtitle="Kezdettől napjainkig"
+            link="https://szbi-pg.hu/index.php/hu/iskolatortenet"
+        />
+        <ImageLink
+            image="https://szbi-pg.hu/images/panel/verseny.jpg"
+            title="Versenyeink"
+            subtitle="Versenyeink személyes jelenlét mellett kerülnek megrendezésre!"
+            link="https://szbi-pg.hu/index.php/hu/versenyeink"
+        />
+        <ImageLink
+            image="https://szbi-pg.hu/images/panel/beiskolazas.jpg"
+            title="Beiskolázás"
+            subtitle="2023/24-es tanévre"
+            link="https://szbi-pg.hu/index.php/hu/beiskolazas"
+        />
     </div>
     <div class="content-col" id="center">
         <article>
+            <p class="article-date">2023. Szeptember 06.</p>
             <h1>Veni Sancte</h1>
             <p>
                 2023. szeptember 6-án Titusz atya a Szent István-templomban megnyitotta a 2023/2024-es tanévet. A Veni
@@ -93,6 +111,7 @@
             </div>
         </article>
         <article>
+            <p class="article-date">2023. Szeptember 05.</p>
             <h1>Kollégiumi csapatépítő program</h1>
             <p>
                 A 2023/2024-es tanévben is folytatódnak a 9. évfolyamos kollégistáinknak szervezett csapatépítő
@@ -125,6 +144,7 @@
             </div>
         </article>
         <article>
+            <p class="article-date">2023. Augusztus 28.</p>
             <h1>Tanévkezdési információk</h1>
             <p style="text-align: center">Kedves PG-s diákok, Tisztelt Szülők!</p>
             <p>Néhány fontos információ a tanév kezdésével kapcsolatosan:</p>
@@ -192,20 +212,25 @@
         margin: auto;
         padding-left: 2rem;
         padding-right: 2rem;
-        display: grid;
-        grid-template-columns: 1fr 3fr 1fr;
-        grid-template-rows: 1fr;
-        column-gap: 8rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 8rem;
 
         .content-col {
+            flex: 3;
             * {
                 width: 100%;
             }
 
             article {
                 line-height: 180%;
-                text-align: justify;
                 margin-bottom: 5rem;
+
+                .article-date {
+                    color: rgba(255, 255, 255, 0.6);
+                    font-size: 0.9rem;
+                }
 
                 h1 {
                     margin-bottom: 1rem;
@@ -220,7 +245,8 @@
                     margin: auto;
                     margin-top: 2rem;
                     max-height: 600px;
-                    width: 850px;
+                    max-width: 850px;
+                    width: 100%;
                     overflow-y: auto;
                     display: flex;
                     flex-direction: row;
@@ -238,6 +264,7 @@
 
         #left-side,
         #right-side {
+            flex: 1;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -245,6 +272,19 @@
 
         #left-side img {
             border: 2px solid black;
+        }
+    }
+
+    @media screen and (max-width: 1100px) {
+        #content {
+            flex-direction: column;
+            gap: 2rem;
+
+            .content-col {
+                * {
+                    width: auto;
+                }
+            }
         }
     }
 </style>
